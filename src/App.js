@@ -19,6 +19,7 @@ import Adminprofile from './components/Adminprofile';
 import Contact from './components/Contact';
 import Past from './components/Past';
 import OrganizationsContainer from './components/OrganizationsContainer';
+import Board from './components/Board';
 
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
@@ -82,6 +83,7 @@ function App() {
           <Route path="/past" component={Past} />
           <Route path="/contact" component={Contact} />
           <Route path="/organizations" component={OrganizationsContainer} />
+          <Route path="/board" component={Board} />
         </Switch>
         
       </div>
