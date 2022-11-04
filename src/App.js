@@ -15,11 +15,11 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Welcome from './components/Welcome';
-
 import Adminprofile from './components/Adminprofile';
 import Contact from './components/Contact';
 import Past from './components/Past';
 import OrganizationsContainer from './components/OrganizationsContainer';
+import OrgDetail from './components/OrgDetail';
 
 
 import Opportunities from './components/Opportunities';
@@ -90,6 +90,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/opportunities" component={Opportunities} />
           <Route path="/organizations" component={OrganizationsContainer} />
+          <Route path="/orgdetail/:id" component={OrgDetail} />
         </Switch>
         
         </div>
