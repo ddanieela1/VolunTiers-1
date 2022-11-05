@@ -19,7 +19,6 @@ import Contact from './components/Contact';
 import Past from './components/Past';
 import OrganizationsContainer from './components/OrganizationsContainer';
 import Opportunities from './components/Opportunities';
-
 import OppDetails from './components/OppDetails';
 import DashboardNavbar from './components/DashboardNavbar';
 import OrgDetail from './components/OrgDetail';
@@ -81,10 +80,10 @@ function App() {
         <Switch>
           <Route path='/signup' component={Signup} />
           <Route 
-          path ="/oppdetail/:id" component={Hour} 
             path="/login"
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
-          />
+            />
+            
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
           
           
@@ -98,7 +97,6 @@ function App() {
           <Route path="/userprofile" component={Userprofile} />
           <Route path="/orgdetail/:id" component={OrgDetail} />
           <Route path="/board" component={Board} />
-
           <Route path="/oppdetail/:id" component={OppDetails} />
 
         </Switch>
