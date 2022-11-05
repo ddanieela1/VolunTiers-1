@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-
-const [checkIn, setCheckIn] = useState('');
-const [checkOut, setCheckOut] = useState('');
+const {eventId,hours} = props
+const [checkIn, setCheckIn] = useState(hours.checkIn);
+const [checkOut, setCheckOut] = useState(hours.checkOut);
 
 function Hour(props) {
-  
   
   const checkingIn = (e) => {
  setCheckIn(new Date().toParseInt());
@@ -19,7 +18,7 @@ function Hour(props) {
    
 const submitTime = (e)=>{
   axios
-    .post(`${REACT_APP_SERVER_URL}/opportunities/${props.eventId.id}`)({
+    .post(`${REACT_APP_SERVER_URL}/opportunities/${props.eventId}`)({
       checkIn: signIn,
       checkOut: signOut,
     })
@@ -31,7 +30,10 @@ const submitTime = (e)=>{
 
   return (
     <div>
-      {/* add time slots here */}
+    
+      <button onClick={checkingIn}>Check In</button>
+      <button onClick={checkingOut}>Check Out</button>
+      <button onClick={submitTime}>Submit</button>
     </div>
   );
 }

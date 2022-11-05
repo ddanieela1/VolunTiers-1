@@ -20,18 +20,9 @@ import Past from './components/Past';
 import OrganizationsContainer from './components/OrganizationsContainer';
 import Opportunities from './components/Opportunities';
 
-import Contact from './components/Contact';
-import Past from './components/Past';
-import OrganizationsContainer from './components/OrganizationsContainer';
-import OrgDetail from './components/OrgDetail';
-
-import Contact from './components/Contact';
-import Past from './components/Past';
-import OrganizationsContainer from './components/OrganizationsContainer';
+import OppDetails from './components/OppDetails';
 import DashboardNavbar from './components/DashboardNavbar';
 import OrgDetail from './components/OrgDetail';
-
-import Opportunities from './components/Opportunities';
 import Userprofile from './components/Userprofile';
 import Board from './components/Board';
 
@@ -90,6 +81,7 @@ function App() {
         <Switch>
           <Route path='/signup' component={Signup} />
           <Route 
+          path ="/oppdetail/:id" component={Hour} 
             path="/login"
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
@@ -106,6 +98,8 @@ function App() {
           <Route path="/userprofile" component={Userprofile} />
           <Route path="/orgdetail/:id" component={OrgDetail} />
           <Route path="/board" component={Board} />
+
+          <Route path="/oppdetail/:id" component={OppDetails} />
 
         </Switch>
         
