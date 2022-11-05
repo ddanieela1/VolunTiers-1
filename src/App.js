@@ -1,6 +1,6 @@
 // Imports
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { NavLink, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 
@@ -15,21 +15,44 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Welcome from './components/Welcome';
+import Contact from './components/Contact';
+import Past from './components/Past';
+import OrganizationsContainer from './components/OrganizationsContainer';
+import Opportunities from './components/Opportunities';
 
-const PrivateRoute = ({ component: Component, ...rest}) => {
+import Contact from './components/Contact';
+import Past from './components/Past';
+import OrganizationsContainer from './components/OrganizationsContainer';
+import OrgDetail from './components/OrgDetail';
+
+import Contact from './components/Contact';
+import Past from './components/Past';
+import OrganizationsContainer from './components/OrganizationsContainer';
+import DashboardNavbar from './components/DashboardNavbar';
+import OrgDetail from './components/OrgDetail';
+
+import Opportunities from './components/Opportunities';
+import Userprofile from './components/Userprofile';
+import Board from './components/Board';
+
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+
   let token = localStorage.getItem('jwtToken');
   console.log('===> Hitting a Private Route');
   return <Route {...rest} render={(props) => {
-    return token ? <Component {...rest} {...props} /> : <Redirect to="/login"/>
+    return token ? <Component {...rest} {...props} /> : <Redirect to="/login" />
   }} />
 }
+
+// Opportunities
 
 function App() {
   // Set state values
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
- 
+
   useEffect(() => {
     let token;
 
@@ -60,6 +83,7 @@ function App() {
 
   return (
     <Router>
+
     <div className="App">
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
@@ -70,12 +94,26 @@ function App() {
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
+          
+          
           <Route exact path="/" component={Welcome} />
           <Route path="/about" component={About} />
+          <Route path="/past" component={Past} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/opportunities" component={Opportunities} />
+          <Route path="/organizations" component={OrganizationsContainer} />
+          <Route path="/dashboardnavbar" component={DashboardNavbar} />
+          <Route path="/userprofile" component={Userprofile} />
+          <Route path="/orgdetail/:id" component={OrgDetail} />
+          <Route path="/board" component={Board} />
+
         </Switch>
+        
+        </div>
+
+        <Footer />
+
       </div>
-      <Footer />
-    </div>
     </Router>
   );
 }

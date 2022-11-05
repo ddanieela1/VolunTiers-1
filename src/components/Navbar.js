@@ -3,9 +3,9 @@ import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = (props) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-info bg-gradient">
             <div className="container">
-                <Link className="navbar-brand" to="/">MERN Auth</Link>
+                <Link className="navbar-brand" to="/">VolunTiers</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -16,6 +16,12 @@ const Navbar = (props) => {
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link"  to="/about">About</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link"  to="/past">Past Opportunities</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link"  to="/contact"> Who we Are</NavLink>
                         </li>
                     </ul>
                     {
