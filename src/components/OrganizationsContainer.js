@@ -42,6 +42,7 @@ const OrganizationsContainer = () => {
         </div>)
     } 
 
+
     return (
         <div className="row mt-4">
             <div className="col-md-7 offset-md-3">

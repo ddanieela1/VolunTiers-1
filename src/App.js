@@ -95,7 +95,6 @@ function App() {
           <Route path="/userprofile" component={Userprofile} />
           <Route path="/orgdetail/:id" component={OrgDetail} />
           <Route path="/board" component={Board} />
-
         </Switch>
         
         </div>
