@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import OppDetails from './components/OppDetails';
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Opportunities = () => {
@@ -19,6 +20,7 @@ const Opportunities = () => {
 
 
     return (
+        <OppDetails></OppDetails>
         <div className="board">
             <h1 className='opportunities'>Opportunities Available</h1>
 
