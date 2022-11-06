@@ -18,25 +18,16 @@ const Opportunities = () => {
         setOpportunity(response.data.opportunities);
     }
 
-
+    
     return (
         <div className="board">
             <h1 className='opportunities'>Opportunities Available</h1>
-
+        
             <div style={{ alignItems: 'center', margin: '20px 60px' }}>
                 <ul>
                     {
                         opportunities.map((opportunities) => {
-                            return <li className="nav-item" key={opportunities.id}>
-                                <NavLink className="nav-link" to={{
-                                    pathname:"/opportunitiesdetail",
-                                    state: { opportunities }
-                                }}>
-                                    {opportunities.name}
-                                </NavLink>
-
-                            </li>
-
+                            return <li key={opportunities.id}>{ opportunities.name }</li>
                         })
                     }
                 </ul>
