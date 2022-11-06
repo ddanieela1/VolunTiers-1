@@ -27,12 +27,14 @@ const Opportunities = () => {
                 <ul>
                     {
                         opportunities.map((opportunities) => {
-                            return <li key={opportunities.id}>{ opportunities.name }</li>
+                            return <li key={opportunities.id}><div>
+                                { opportunities.name } 
+                                </div>{ opportunities.name } </li>
                         })
                     }
                 </ul>
+                    <OppDetails eventId={eventId} hours={hours}/>
             </div>
-                    <OppDetails></OppDetails>
 
 
         </div>

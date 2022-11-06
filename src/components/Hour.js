@@ -28,6 +28,7 @@ const submitTime = (e)=>{
     .catch(error =>{
       console.log('Error',error)
     })
+    
 
   }else{
 axios.put(`${REACT_APP_SERVER_URL}/hours/${eventId}`)({
