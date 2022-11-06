@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Past = () => {
@@ -31,6 +30,7 @@ const Past = () => {
               {
                 pastOpp.map((past) => {
                   return <li className='past' key={past.id}>
+                    <p className='highlight'>{past.users.length} Voluntiers helped make this event a success!</p>
                     <h2>{past.name}</h2>
                     <h4>{`${new Date(past.date).getMonth() + 1}-${new Date(past.date).getDate()}-${new Date(past.date).getFullYear()}`}</h4>
                     <h4>{past.startTime} until {past.endTime}</h4>
