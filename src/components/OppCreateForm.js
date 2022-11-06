@@ -36,7 +36,10 @@ const OppCreateForm = (org) => {
         }
 
     if (created) return (
-    <div><h1>{org.orgName}</h1><p>Your event, {eventCreate.name} was created.</p></div> )
+    <div><h1>{org.orgName}</h1><p>Your event, {eventCreate.name} was created.</p>
+    <form><button type='Submit'>Who's registered?</button></form>
+    </div> 
+    )
   
     return (
         <div className="row mt-4">

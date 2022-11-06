@@ -1,4 +1,3 @@
-// Imports
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
@@ -19,7 +18,7 @@ const OpportunitiesDetail = () => {
                         <h3>Make a World of Difference...</h3>
                         <h3>Volunteer for</h3>
                        <h2>{data.opportunities.name}</h2>
-                       <h4>{data.opportunities.date}</h4>
+                       <h4>{`${new Date(data.opportunities.date).getMonth() +1}-${new Date(data.opportunities.date).getDate()}-${new Date(data.opportunities.date).getFullYear()}`}</h4>
                        <h4>{data.opportunities.startTime} until {data.opportunities.endTime}</h4>
                        <h5>{data.opportunities.description}</h5>
                     </div>
