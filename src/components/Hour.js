@@ -19,7 +19,7 @@ function Hour(props) {
   const submitTime = (e) => {
     if (!checkIn && !checkOut) {
       axios
-        .post(`${REACT_APP_SERVER_URL}/hours/${eventId}`)({
+        .post(`${REACT_APP_SERVER_URL}/hours/${eventId.id}`)({
           signIn: checkIn,
           signOut: checkOut,
         })
@@ -37,7 +37,7 @@ function Hour(props) {
         }
     } else {
       axios
-        .put(`${REACT_APP_SERVER_URL}/hours/${eventId}`)({
+        .put(`${REACT_APP_SERVER_URL}/hours/${eventId.id}`)({
           signIn: checkIn,
           signOut: checkOut,
         })
@@ -50,13 +50,16 @@ function Hour(props) {
     }
   };
 
-
-
   return (
     <div>
-      <button onClick={checkingIn}>Check In</button>
+        <button onClick={checkingIn}>Check In</button>
       <button onClick={checkingOut}>Check Out</button>
       <button onClick={submitTime}>Submit</button>
+
+      {/* <button onClick={()=> props.checkingIn()}>Check In</button>
+      <button onClick={()=> props.checkingOut()}>Check Out</button>
+      <button onClick={()=> props.submitTime()}>Submit</button> */}
+
     </div>
   );
 }

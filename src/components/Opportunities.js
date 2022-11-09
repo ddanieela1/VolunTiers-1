@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import OppDetails from './components/OppDetails';
+import { NavLink } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Opportunities = () => {
     const [opportunities, setOpportunity] = useState([]);
-
     useEffect(async () => {
         await fetchOpportunity();
     }, [])
+
     useEffect(() => {
         console.log(opportunities)
     }, [opportunities])
@@ -18,11 +18,11 @@ const Opportunities = () => {
         setOpportunity(response.data.opportunities);
     }
 
-    
+
     return (
         <div className="board">
             <h1 className='opportunities'>Opportunities Available</h1>
-        
+
             <div style={{ alignItems: 'center', margin: '20px 60px' }}>
                 <ul>
                     {
@@ -30,15 +30,22 @@ const Opportunities = () => {
                             return <li key={opportunities.id}><div>
                                 { opportunities.name } 
                                 </div>{ opportunities.name } </li>
+                            return <li className="nav-item" key={opportunities.id}>
+                                <NavLink className="nav-link" to={{
+                                    pathname: "/opportunitiesdetail",
+                                    state: { opportunities }
+                                }}>
+                                    {opportunities.name}
+                                </NavLink>
+
+                            </li>
+
                         })
                     }
                 </ul>
-                    <OppDetails eventId={eventId} hours={hours}/>
+         
             </div>
-
-
         </div>
     );
 }
-
 export default Opportunities;

@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-
 // CSS
 import './App.css';
-
 // Components
 import Signup from './components/Signup';
 import About from './components/About';
@@ -19,21 +17,22 @@ import Contact from './components/Contact';
 import Past from './components/Past';
 import OrganizationsContainer from './components/OrganizationsContainer';
 import Opportunities from './components/Opportunities';
-import OppDetails from './components/OppDetails';
 import DashboardNavbar from './components/DashboardNavbar';
 import OrgDetail from './components/OrgDetail';
 import Userprofile from './components/Userprofile';
 import Board from './components/Board';
-
+import OpportunitiesDetail from './components/OpportunitiesDetail';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
   let token = localStorage.getItem('jwtToken');
   console.log('===> Hitting a Private Route');
   return <Route {...rest} render={(props) => {
-    return token ? <Component {...rest} {...props} /> : <Redirect to="/login" />
+    return token ? <Component {...rest} {...props} /> : <Redirect to="/login"  />
   }} />
 }
+
+// Opportunities
 
 // Opportunities
 
@@ -73,7 +72,6 @@ function App() {
 
   return (
     <Router>
-
     <div className="App">
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
@@ -85,19 +83,18 @@ function App() {
             />
             
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
-          
-          
           <Route exact path="/" component={Welcome} />
           <Route path="/about" component={About} />
           <Route path="/past" component={Past} />
           <Route path="/contact" component={Contact} />
           <Route path="/opportunities" component={Opportunities} />
+          <Route path="/opportunitiesdetail" component={OpportunitiesDetail} />
           <Route path="/organizations" component={OrganizationsContainer} />
           <Route path="/dashboardnavbar" component={DashboardNavbar} />
           <Route path="/userprofile" component={Userprofile} />
           <Route path="/orgdetail/:id" component={OrgDetail} />
           <Route path="/board" component={Board} />
-          <Route path="/oppdetail/:id" component={OppDetails} />
+      
 
         </Switch>
         
