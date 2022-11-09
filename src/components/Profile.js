@@ -5,6 +5,7 @@ import setAuthToken from "../utils/setAuthToken";
 import { MDBListGroup, MDBListGroupItem, MDBIcon } from "mdbreact";
 import DashboardCard from "./DashboardCard";
 import DashboardTable from "./DashboardTable";
+import DashboardIntro from "./DashboardIntro";
 
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -56,10 +57,10 @@ const Profile = (props) => {
             id="sidebarMenu"
             className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse "
           >
-            <div className="position-sticky pt-3 sidebar-sticky">
-              <ul className="nav flex-column">
+            <div className="position-sticky pt-5 sidebar-sticky w-100">
+              <ul className="nav flex-column ">
                 <MDBListGroup className="list-group-flush">
-                  <NavLink exact={true} to="/" activeClassName="activeClass">
+                  <NavLink exact={true} to="/profile" activeClassName="activeClass">
                     <MDBListGroupItem>
                       <MDBIcon icon="chart-pie" className="mr-3" />
                       Dashboard
@@ -73,19 +74,19 @@ const Profile = (props) => {
                   </NavLink>
                   <NavLink to="/opportunities" activeClassName="activeClass">
                     <MDBListGroupItem>
-                      <MDBIcon icon="table" className="mr-3" />
-                      Opportunities
+                      <MDBIcon icon="fa-solid fa-handshake" className="mr-3" />
+                      Opportunity
                     </MDBListGroupItem>
                   </NavLink>
                   <NavLink to="/board" activeClassName="activeClass">
                     <MDBListGroupItem>
-                      <MDBIcon icon="map" className="mr-3" />
-                      LeaderBoards
+                      <MDBIcon icon="fa-solid fa-crown" className="mr-3" />
+                      Leaders
                     </MDBListGroupItem>
                   </NavLink>
                   <NavLink to="/orgdetail/:id" activeClassName="activeClass">
                     <MDBListGroupItem>
-                      <MDBIcon icon="exclamation" className="mr-3" />
+                      <MDBIcon icon="fa-solid fa-calendar-lines-pen" className="mr-3" />
                       Create Event
                     </MDBListGroupItem>
                   </NavLink>
@@ -93,40 +94,29 @@ const Profile = (props) => {
               </ul>
             </div>
           </nav>
-            
+
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 className="h2">Your Dashboard</h1>
-              <div className="btn-toolbar mb-2 mb-md-0">
-    
-              </div>
+              <div className="btn-toolbar mb-2 mb-md-0"></div>
             </div>
             <span className="portfolio-item d-block">
-              <div className="foto">
-                <h2>Hi, {name}</h2>
-                <h5>
-                  {" "}
-                  Email: {email} ID: {id}{" "}
-                </h5>
-              </div>
-              <br />
-
+                <DashboardIntro />
               <div className="">
                 <div className="">
                   <div className="row text-center">
                     <DashboardCard />
-                    </div>
                   </div>
                 </div>
-                
+              </div>
+
+              <div className="container">
                 <div className="container">
-                  <div className="container">
-                    <div className="text-center">
+                  <div className="text-center">
                     <DashboardTable />
-                    </div>
                   </div>
                 </div>
-              
+              </div>
             </span>
           </main>
         </div>
