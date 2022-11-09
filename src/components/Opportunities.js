@@ -18,11 +18,11 @@ const Opportunities = () => {
         setOpportunity(response.data.opportunities);
     }
 
-
+    
     return (
         <div className="board">
             <h1 className='opportunities'>Opportunities Available</h1>
-
+        
             <div style={{ alignItems: 'center', margin: '20px 60px' }}>
                 <ul>
                     {

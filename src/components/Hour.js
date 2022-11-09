@@ -16,6 +16,7 @@ function Hour(props) {
     setCheckOut(new Date().toParseInt());
   };
 
+  
   const submitTime = (e) => {
     if (!checkIn && !checkOut) {
       axios
@@ -49,6 +50,8 @@ function Hour(props) {
         });
     }
   };
+
+
 
   return (
     <div>
