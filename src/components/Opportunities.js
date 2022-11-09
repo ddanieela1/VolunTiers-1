@@ -27,9 +27,6 @@ const Opportunities = () => {
                 <ul>
                     {
                         opportunities.map((opportunities) => {
-                            return <li key={opportunities.id}><div>
-                                { opportunities.name } 
-                                </div>{ opportunities.name } </li>
                             return <li className="nav-item" key={opportunities.id}>
                                 <NavLink className="nav-link" to={{
                                     pathname: "/opportunitiesdetail",
@@ -43,7 +40,6 @@ const Opportunities = () => {
                         })
                     }
                 </ul>
-         
             </div>
         </div>
     );
